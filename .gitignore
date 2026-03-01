@@ -36,6 +36,5 @@ htmlcov/
 .DS_Store
 Thumbs.db
 
-# Project specific
-docs/assets/
-docs/index.html
+# Project specific - generated site (tracked for GitHub Pages)
+# docs/
