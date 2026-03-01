@@ -1,0 +1,121 @@
+/* Minimal Theme - Clean typography-focused layout */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #fafafa;
+  --surface: #ffffff;
+  --text: #111111;
+  --text-muted: #555555;
+  --accent: #111111;
+  --accent-fg: #ffffff;
+  --border: #e0e0e0;
+  --radius: 4px;
+  --font: 'Georgia', serif;
+  --font-ui: system-ui, sans-serif;
+  --max-width: 480px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f0f0f;
+    --surface: #1a1a1a;
+    --text: #f0f0f0;
+    --text-muted: #999999;
+    --accent: #f0f0f0;
+    --accent-fg: #0f0f0f;
+    --border: #2a2a2a;
+  }
+}
+
+html {
+  font-family: var(--font-ui);
+  font-size: 16px;
+  line-height: 1.6;
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Header */
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: center;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--border);
+}
+
+h1 {
+  font-family: var(--font);
+  font-size: 1.4rem;
+  font-weight: normal;
+  letter-spacing: 0.02em;
+}
+
+.bio {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+/* Links */
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.link-item {
+  display: block;
+  padding: 0.875rem 1.25rem;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--accent-fg);
+  background-color: var(--accent);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  text-align: center;
+  letter-spacing: 0.03em;
+  transition: opacity 0.2s;
+}
+
+.link-item:hover,
+.link-item:focus {
+  opacity: 0.75;
+  outline: none;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
