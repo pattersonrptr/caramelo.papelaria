@@ -8,40 +8,60 @@
     <meta name="author" content="Patterson">
     <link rel="canonical" href="https://pattersonrptr.github.io/caramelo.papelaria/">
     <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
     <meta property="og:title" content="Caramelo Papelaria">
-    <meta property="og:site_name" content="Caramelo Papelaria">
     <meta property="og:description" content="A papelaria mais doce que existe">
     <meta property="og:locale" content="pt_br">
     <meta name="twitter:title" content="Caramelo Papelaria">
     <meta name="twitter:description" content="A papelaria mais doce que existe">
 </head>
 <body>
-    <header>
-        <img src="assets/img/picture.jpg" alt="Picture" class="avatar">
-        <h1>Caramelo Papelaria</h1>
-        <small class="bio">A papelaria mais doce que existe</small>
-    </header>
-    <main>
-        <section class="links">
-            
-            <a class="link-item" href="https://shopee.com.br/pattriziaol" target="_blank" rel="noopener noreferrer">
-                <p>Shopee</p>
-            </a>
-            
-            <a class="link-item" href="https://www.instagram.com/caramelo.papelaria/" target="_blank" rel="noopener noreferrer">
-                <p>Instagram</p>
-            </a>
-            
-            <a class="link-item" href="https://www.threads.com/@caramelo.papelaria" target="_blank" rel="noopener noreferrer">
-                <p>Threads</p>
-            </a>
-            
-        </section>
-    </main>
-    <footer>
-        <small>&copy; <span class="year"></span> Patterson</small>
-    </footer>
+    <canvas id="bg-canvas"></canvas>
+
+    <div class="card">
+        <div class="badge">✦ 8 de Março ✦</div>
+
+        <header>
+            <div class="avatar-wrapper">
+                <img src="assets/img/picture.jpg" alt="Caramelo Papelaria" class="avatar">
+            </div>
+            <h1>Caramelo Papelaria</h1>
+            <p class="bio">A papelaria mais doce que existe</p>
+        </header>
+
+        <main>
+            <nav class="links">
+                
+                <a class="link-item" href="https://shopee.com.br/pattriziaol" target="_blank" rel="noopener noreferrer">
+                    <span class="link-deco">❀</span>
+                    <span class="link-label">Shopee</span>
+                    <span class="link-arrow">›</span>
+                </a>
+                
+                <a class="link-item" href="https://www.instagram.com/caramelo.papelaria/" target="_blank" rel="noopener noreferrer">
+                    <span class="link-deco">❀</span>
+                    <span class="link-label">Instagram</span>
+                    <span class="link-arrow">›</span>
+                </a>
+                
+                <a class="link-item" href="https://www.threads.com/@caramelo.papelaria" target="_blank" rel="noopener noreferrer">
+                    <span class="link-deco">❀</span>
+                    <span class="link-label">Threads</span>
+                    <span class="link-arrow">›</span>
+                </a>
+                
+            </nav>
+        </main>
+
+        <footer>
+            <p class="message">Celebrando mulheres incríveis 🌸</p>
+            <small>&copy; <span class="year"></span> Patterson</small>
+        </footer>
+    </div>
+
     <script src="assets/js/script.js"></script>
 </body>
 </html>
