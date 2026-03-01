@@ -129,21 +129,33 @@ Themes live in the `themes/` directory. Each theme is a self-contained folder:
 
 ```
 themes/
-├── custom/          ← default theme (card-based, colorful)
-│   ├── index.html
-│   └── assets/
-│       ├── css/styles.css
-│       ├── js/script.js
-│       └── img/
-└── minimal/         ← minimal theme (clean typography)
-    ├── index.html
-    └── assets/
-        ├── css/styles.css
-        ├── js/script.js
-        └── img/
+├── custom/              ← default theme (card-based, colorful, light/dark mode)
+├── minimal/             ← clean typography theme (light/dark mode)
+├── sweet/               ← pastel aesthetic with animated background
+├── dia_das_mulheres/    ← 8 de Março: falling petals, purple/rose/gold palette
+└── pascoa/              ← Páscoa: floating eggs & bunnies, full pastel palette
 ```
 
-Both themes support **automatic light/dark mode** via the CSS `prefers-color-scheme` media query.
+Each theme folder follows the same structure:
+
+```
+themes/<name>/
+├── index.html
+└── assets/
+    ├── css/styles.css
+    ├── js/script.js
+    └── img/
+```
+
+### Available themes
+
+| Theme | Style | Best for |
+|---|---|---|
+| `custom` | Card-based, colorful, light/dark auto | Year-round default |
+| `minimal` | Clean typography, light/dark auto | Minimalist look |
+| `sweet` | Pastel, glassmorphism, animated background | Year-round cute |
+| `dia_das_mulheres` | Purple/rose/gold, falling petals | March 8th |
+| `pascoa` | Pastel eggs & bunnies, animated | Easter season |
 
 ### Creating a custom theme
 
@@ -193,9 +205,24 @@ pytest --cov=generate_site --cov-report=term-missing
 
 ## Publishing to GitHub Pages
 
-1. Generate the site: `python generate_site.py`
-2. Commit and push the `docs/` folder.
-3. In the repository settings → **Pages**, set the source to the `docs/` folder on the `main` branch.
+Use the `deploy.sh` script to generate the site and publish in one command:
+
+```bash
+# Deploy with the theme set in config.yml
+bash deploy.sh
+
+# Deploy a specific theme (overrides config.yml)
+bash deploy.sh sweet
+bash deploy.sh dia_das_mulheres
+bash deploy.sh pascoa
+```
+
+The script will:
+1. Generate the site with the chosen theme into `docs/`
+2. Commit `docs/` automatically
+3. Push to the current branch
+
+> **First-time setup:** In the repository settings → **Pages**, set the source to the `docs/` folder on the `main` branch.
 
 ---
 
@@ -205,13 +232,17 @@ pytest --cov=generate_site --cov-report=term-missing
 caramelo.papelaria/
 ├── config.yml              # Site configuration
 ├── generate_site.py        # Site generator script
+├── deploy.sh               # One-command deploy script
 ├── pyproject.toml          # Project metadata and tool settings
 ├── requirements.txt        # Pinned dependencies
 ├── readme.md
 ├── docs/                   # Generated site output (for GitHub Pages)
 ├── themes/
 │   ├── custom/             # Default theme
-│   └── minimal/            # Minimal typography theme
+│   ├── minimal/            # Minimal typography theme
+│   ├── sweet/              # Pastel aesthetic theme
+│   ├── dia_das_mulheres/   # March 8th seasonal theme
+│   └── pascoa/             # Easter seasonal theme
 └── tests/
     └── test_generate_site.py
 ```
