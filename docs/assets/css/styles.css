@@ -1,91 +1,83 @@
-/* ============================================================
-   Sweet Theme — Caramelo Papelaria
-   Paleta pastel: caramelo, rosê, creme, lilás suave
-   ============================================================ */
-
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Nunito:wght@400;500;600&display=swap');
-
-/* ── Reset ── */
-*, *::before, *::after {
-  box-sizing: border-box;
+/* CSS Reset */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-/* ── Tokens ── */
+/* Variables */
 :root {
-  --caramel:     #c8835a;
-  --caramel-lt:  #e8b896;
-  --rose:        #e8a4b0;
-  --rose-lt:     #f5d0d8;
-  --lilac:       #c9b8e8;
-  --lilac-lt:    #e8e0f5;
-  --cream:       #fdf6ee;
-  --cream-dark:  #f5ece0;
-  --white:       #ffffff;
-  --text:        #5a3e35;
-  --text-muted:  #9a7a70;
-  --shadow-soft: 0 8px 32px rgba(200, 131, 90, 0.15);
-  --shadow-btn:  0 4px 16px rgba(200, 131, 90, 0.25);
-  --radius-card: 28px;
-  --radius-btn:  50px;
-  --font-display: 'Playfair Display', Georgia, serif;
-  --font-body:    'Nunito', system-ui, sans-serif;
+  --max-width: 600px;
+  --font-family: 'Inter', sans-serif;
+  --padding: 1rem;
+  --header-margin-bottom: 1rem;
+  --line-height: 2;
+  --font-size: 16px;
+
+  --primary-color-light: #ffffff;
+  --background-color-light: #f0f0f0;
+  --text-color-light: #333;
+  --link-color-light: #1a73e8;
+  --bio-color-light: #666;
+
+  --primary-color-dark: #1e1e1e;
+  --background-color-dark: #121212;
+  --text-color-dark: #e0e0e0;
+  --link-color-dark: #8ab4f8;
+  --bio-color-dark: #aaa;
 }
 
-/* ── Canvas background ── */
-#bg-canvas {
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
+/* Light Theme */
+@media (prefers-color-scheme: light) {
+  :root {
+    --primary-color: var(--primary-color-light);
+    --background-color: var(--background-color-light);
+    --text-color: var(--text-color-light);
+    --link-color: var(--link-color-light);
+    --bio-color: var(--bio-color-light);
+  }
 }
 
-/* ── Layout ── */
+/* Dark Theme */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-color: var(--primary-color-dark);
+    --background-color: var(--background-color-dark);
+    --text-color: var(--text-color-dark);
+    --link-color: var(--link-color-dark);
+    --bio-color: var(--bio-color-dark);
+  }
+}
+
+/* Global Styles */
+html {
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+}
+
 body {
+  max-width: var(--max-width);
   min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem 1rem;
-  font-family: var(--font-body);
-  color: var(--text);
-  overflow-x: hidden;
-}
-
-/* ── Card ── */
-.card {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  max-width: 420px;
-  background: rgba(253, 246, 238, 0.82);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border: 1.5px solid rgba(255, 255, 255, 0.7);
-  border-radius: var(--radius-card);
-  box-shadow: var(--shadow-soft);
-  padding: 2.5rem 2rem 2rem;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  align-items: center;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  padding: var(--padding);
 }
 
-/* ── Header ── */
+/* Header Styles */
 header {
+  padding: var(--padding) 0;
+  margin-bottom: var(--header-margin-bottom);
+  width: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  gap: 0.6rem;
   text-align: center;
-}
-
-.avatar-wrapper {
-  position: relative;
-  width: 100px;
-  height: 100px;
-  margin-bottom: 0.25rem;
 }
 
 .avatar {
@@ -93,131 +85,83 @@ header {
   height: 100px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid var(--white);
-  box-shadow: 0 4px 20px rgba(200, 131, 90, 0.3);
-  position: relative;
-  z-index: 1;
-}
-
-.avatar-ring {
-  position: absolute;
-  inset: -5px;
-  border-radius: 50%;
-  background: conic-gradient(
-    var(--caramel-lt),
-    var(--rose),
-    var(--lilac),
-    var(--caramel-lt)
-  );
-  animation: spin-ring 6s linear infinite;
-  z-index: 0;
-}
-
-@keyframes spin-ring {
-  to { transform: rotate(360deg); }
+  border: 2px solid var(--primary-color);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
-  font-family: var(--font-display);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--caramel);
-  letter-spacing: 0.01em;
-  line-height: 1.2;
+  font-size: 24px;
+  margin-bottom: 0.5rem;
 }
 
 .bio {
-  font-size: 0.875rem;
-  color: var(--text-muted);
-  font-style: italic;
-  font-family: var(--font-display);
+  font-size: 14px;
+  color: var(--bio-color);
+  margin-bottom: 1rem;
 }
 
-/* ── Links ── */
+/* Main Content Styles */
+main {
+  width: 100%;
+  flex: 1;
+}
+
 .links {
   display: flex;
   flex-direction: column;
-  gap: 0.85rem;
+  gap: 1rem;
+  text-align: center;
+  overflow-y: auto;
+  max-height: 400px;
 }
 
 .link-item {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.9rem 1.25rem;
+  display: block;
+  padding: 16px 20px;
   text-decoration: none;
-  background: var(--white);
-  border: 1.5px solid var(--rose-lt);
-  border-radius: var(--radius-btn);
-  box-shadow: var(--shadow-btn);
-  color: var(--text);
-  font-size: 0.9rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.link-item::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, var(--rose-lt), var(--lilac-lt));
-  opacity: 0;
-  transition: opacity 0.25s ease;
-  border-radius: inherit;
+  color: var(--link-color);
+  background: var(--primary-color);
+  border-radius: 12px;
+  border: 1px solid var(--link-color);
+  transition: background-color 0.25s, color 0.25s;
 }
 
 .link-item:hover,
 .link-item:focus {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(200, 131, 90, 0.3);
-  outline: none;
+  background-color: var(--link-color);
+  color: var(--primary-color);
 }
 
-.link-item:hover::before,
-.link-item:focus::before {
-  opacity: 1;
+.link-item p {
+  line-height: 1.5;
+  font-weight: 500;
 }
 
-.link-icon {
-  font-size: 0.75rem;
-  color: var(--caramel);
-  position: relative;
-  z-index: 1;
-  flex-shrink: 0;
-}
-
-.link-label {
-  flex: 1;
-  text-align: center;
-  position: relative;
-  z-index: 1;
-}
-
-.link-arrow {
-  font-size: 1.1rem;
-  color: var(--caramel-lt);
-  position: relative;
-  z-index: 1;
-  flex-shrink: 0;
-  transition: transform 0.2s ease;
-}
-
-.link-item:hover .link-arrow {
-  transform: translateX(3px);
-}
-
-/* ── Footer ── */
+/* Footer Styles */
 footer {
+  width: 100%;
   text-align: center;
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  letter-spacing: 0.05em;
+  padding: 1rem 0;
+  font-size: 14px;
+  gap: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* ── Scrollbar ── */
-::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: var(--rose-lt); border-radius: 4px; }
+/* ScrollBar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: transparent;
+}
