@@ -8,7 +8,7 @@ The generated site is a single `index.html` file with a list of clickable links,
 
 ## Demo
 
-Live page: [https://pattersonrptr.github.io/caramelo.papelaria/](https://pattersonrptr.github.io/caramelo.papelaria/)
+Live page: [https://caramelo-papelaria.github.io/](https://caramelo-papelaria.github.io/)
 
 ---
 
@@ -40,8 +40,8 @@ docs/               ← generated site (index.html + assets)
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/pattersonrptr/caramelo.papelaria.git
-cd caramelo.papelaria
+git clone https://github.com/caramelo-papelaria/caramelo-papelaria.github.io.git
+cd caramelo-papelaria.github.io
 
 # 2. Create and activate a virtual environment
 python -m venv .venv
@@ -67,7 +67,7 @@ meta:
   description: "A papelaria mais doce que existe"
   title: "Caramelo Papelaria"
   author: "Patterson"
-  siteUrl: "https://pattersonrptr.github.io/caramelo.papelaria/"
+  siteUrl: "https://caramelo-papelaria.github.io/"
 
 links:
   - name: "Shopee"
@@ -223,6 +223,39 @@ The script will:
 3. Push to the current branch
 
 > **First-time setup:** In the repository settings → **Pages**, set the source to the `docs/` folder on the `main` branch.
+
+---
+
+## Migrating to the GitHub Organization (caramelo-papelaria)
+
+To publish at the clean URL `https://caramelo-papelaria.github.io/`, follow these steps **once**:
+
+1. **Create the organization** at [github.com/organizations/new](https://github.com/organizations/new)
+   - Name: `caramelo-papelaria`
+   - Choose the free plan.
+
+2. **Create the repository** inside the org named exactly `caramelo-papelaria.github.io`.
+
+3. **Push this code** to the new repo:
+   ```bash
+   git remote set-url origin https://github.com/caramelo-papelaria/caramelo-papelaria.github.io.git
+   git push -u origin main
+   ```
+
+4. **Enable GitHub Pages:** go to the new repo → Settings → Pages → Source: `main` branch, folder `/docs`. Save.
+
+5. In a few minutes the site will be live at **`https://caramelo-papelaria.github.io/`**.
+
+### How to deploy after changing a theme
+
+Every time you want to update the theme or any content, just run from inside the repo folder:
+
+```bash
+bash deploy.sh              # uses the theme set in config.yml
+bash deploy.sh sweet        # or pass a specific theme name
+```
+
+That's it. The script generates the site, commits `docs/`, and pushes. GitHub Pages detects the push and updates the live site automatically within ~30 seconds.
 
 ---
 
